@@ -71,7 +71,7 @@ export default function OverviewPage() {
           <IssueFilters value={filters} onChange={setFilters} />
         </Card>
         <div className="space-y-3">
-          <MapView issues={filtered} selectedIssueId={selectedId} onSelectIssue={setSelectedId} heightClassName="h-[420px]" />
+          <MapView issues={filtered} selectedIssueId={selectedId} onSelectIssue={setSelectedId} heightClassName="h-[360px] sm:h-[420px]" />
           {selectedId && (() => {
             const issue = filtered.find((i) => i.id === selectedId)
             return issue ? (

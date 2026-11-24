@@ -74,10 +74,10 @@ export default function MunicipalConsolePage() {
 
       {/* Filters */}
       <Card className="p-4">
-        <div className="flex flex-wrap items-center gap-2">
-          <div className="relative">
+        <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:flex lg:flex-wrap lg:items-center">
+          <div className="relative lg:w-56">
             <Search className="pointer-events-none absolute left-2.5 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-[var(--color-navy-400)]" />
-            <input value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Search by ID or title" className="form-input w-56 pl-8" />
+            <input value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Search by ID or title" className="form-input pl-8" />
           </div>
           <select value={statusFilter} onChange={(e) => setStatusFilter(e.target.value as IssueStatus | '')} className="form-input w-auto">
             <option value="">All statuses</option>
@@ -102,7 +102,7 @@ export default function MunicipalConsolePage() {
       </Card>
 
       {/* Table */}
-      <Card className="overflow-x-auto p-0">
+      <Card className="hidden overflow-x-auto p-0 md:block">
         <table className="w-full min-w-[920px] text-left text-sm">
           <thead className="border-b border-[var(--color-border)] bg-[var(--color-paper)] text-xs text-[var(--color-slate-500)]">
             <tr>
@@ -141,6 +141,31 @@ export default function MunicipalConsolePage() {
           </tbody>
         </table>
       </Card>
+
+      <div className="space-y-3 md:hidden">
+        {rows.map(({ issue, priority }) => (
+          <Card key={issue.id} className="p-4">
+            <div className="flex flex-wrap items-center gap-2">
+              <StatusBadge status={issue.status} />
+              <PriorityBadge level={priority.level} score={priority.score} />
+              <span className="ml-auto text-xs font-medium text-[var(--color-navy-400)]">{issue.id}</span>
+            </div>
+            <p className="mt-2 font-display text-sm font-semibold text-[var(--color-navy-950)]">{issue.title}</p>
+            <p className="mt-1 text-xs text-[var(--color-slate-500)]">
+              {CATEGORY_LABELS[issue.category]} · {issue.location.ward}
+            </p>
+            <div className="mt-3 flex items-center justify-between gap-3">
+              <span className="text-xs text-[var(--color-navy-600)]">{issue.assignedTeam ?? 'No team assigned'}</span>
+              <Button variant="secondary" disabled={!isOfficer} onClick={() => setManagingId(issue.id)} className="flex-shrink-0 !px-3 !py-1.5 text-xs">
+                Manage
+              </Button>
+            </div>
+          </Card>
+        ))}
+        {rows.length === 0 && (
+          <Card className="p-6 text-center text-sm text-[var(--color-slate-500)]">No reports match these filters.</Card>
+        )}
+      </div>
 
       {/* Analytics */}
       <section className="grid grid-cols-1 gap-4 lg:grid-cols-2">

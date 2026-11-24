@@ -137,7 +137,7 @@ export function AppShell() {
 
       <div className="flex min-w-0 flex-1 flex-col">
         {/* Top bar */}
-        <header className="flex h-16 flex-shrink-0 items-center gap-3 border-b border-[var(--color-border)] bg-white px-4 md:px-6">
+        <header className="flex h-16 flex-shrink-0 items-center gap-2 border-b border-[var(--color-border)] bg-white px-3 sm:gap-3 sm:px-4 md:px-6">
           <button className="text-[var(--color-navy-700)] md:hidden" onClick={() => setMobileNavOpen(true)} aria-label="Open menu">
             <Menu className="h-5 w-5" />
           </button>
@@ -168,7 +168,7 @@ export function AppShell() {
               {notifications.length > 0 && <span className="absolute right-1.5 top-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-accent)]" />}
             </button>
             {notifOpen && (
-              <div className="absolute right-0 top-11 z-50 w-80 rounded-xl border border-[var(--color-border)] bg-white p-2 shadow-lg">
+              <div className="absolute right-0 top-11 z-50 w-[min(320px,calc(100vw-2rem))] rounded-xl border border-[var(--color-border)] bg-white p-2 shadow-lg">
                 <p className="px-2 py-1 text-xs font-semibold text-[var(--color-slate-500)]">Recent activity</p>
                 {notifications.length === 0 && <p className="px-2 py-3 text-sm text-[var(--color-slate-500)]">No activity yet.</p>}
                 {notifications.map((n) => (
@@ -197,7 +197,7 @@ export function AppShell() {
               <ChevronDown className="h-3.5 w-3.5 text-[var(--color-navy-400)]" />
             </button>
             {profileOpen && (
-              <div className="absolute right-0 top-11 z-50 w-64 rounded-xl border border-[var(--color-border)] bg-white p-2 shadow-lg">
+              <div className="absolute right-0 top-11 z-50 w-[min(256px,calc(100vw-2rem))] rounded-xl border border-[var(--color-border)] bg-white p-2 shadow-lg">
                 <p className="px-2 py-1 text-xs font-semibold text-[var(--color-slate-500)]">Account</p>
                 {state.currentRole === 'officer' && (
                   <button

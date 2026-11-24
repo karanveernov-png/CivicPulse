@@ -29,7 +29,7 @@ export default function LiveMapPage() {
         </Card>
 
         <div className="lg:order-2">
-          <MapView issues={filtered} selectedIssueId={selectedId} onSelectIssue={setSelectedId} heightClassName="h-[560px]" />
+          <MapView issues={filtered} selectedIssueId={selectedId} onSelectIssue={setSelectedId} heightClassName="h-[380px] sm:h-[460px] lg:h-[560px]" />
         </div>
 
         <div className="space-y-3 lg:order-3">

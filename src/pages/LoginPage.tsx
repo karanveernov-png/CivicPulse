@@ -44,21 +44,23 @@ export default function LoginPage() {
   }
 
   return (
-    <main className="min-h-screen bg-[var(--color-paper)] p-4 md:p-8">
+    <main className="min-h-screen bg-[var(--color-paper)] p-4 py-6 md:flex md:min-h-dvh md:items-center md:p-8">
       <div className="mx-auto max-w-5xl">
-        <LogoLockup />
-        <div className="mt-8 grid overflow-hidden rounded-2xl border border-[var(--color-border)] bg-white shadow-sm md:grid-cols-[0.85fr_1.15fr]">
-          <section className="hidden bg-[var(--color-navy-950)] p-8 text-white md:block">
+        <div className="mb-4 px-1 md:mb-6 md:px-0">
+          <LogoLockup />
+        </div>
+        <div className="grid w-full overflow-hidden rounded-2xl border border-[var(--color-border)] bg-white shadow-sm md:grid-cols-[0.85fr_1.15fr]">
+          <section className="bg-[var(--color-navy-950)] p-5 text-white sm:p-6 md:p-8">
             <p className="text-sm font-medium text-orange-300">CivicPulse Delhi</p>
-            <h1 className="mt-3 max-w-sm font-display text-3xl font-bold">A clearer way to improve your neighbourhood.</h1>
-            <div className="mt-8 space-y-4 text-sm text-white/80">
+            <h1 className="mt-2 max-w-sm font-display text-2xl font-bold sm:text-3xl md:mt-3">A clearer way to improve your neighbourhood.</h1>
+            <div className="mt-5 grid grid-cols-1 gap-3 text-sm text-white/80 sm:grid-cols-3 md:mt-8 md:grid-cols-1 md:gap-4">
               <Feature icon={MapPin} text="Pin the exact location" />
               <Feature icon={Camera} text="Upload a photo of the issue" />
               <Feature icon={ShieldCheck} text="Track it through resolution" />
             </div>
           </section>
 
-          <section className="p-5 sm:p-8">
+          <section className="p-4 sm:p-6 md:p-8">
             <div className="grid grid-cols-2 rounded-xl bg-[var(--color-paper)] p-1">
               <button type="button" onClick={() => { setPortal('citizen'); setError('') }} className={`flex items-center justify-center gap-2 rounded-lg px-3 py-2.5 text-sm font-semibold ${portal === 'citizen' ? 'bg-white text-[var(--color-accent-600)] shadow-sm' : 'text-[var(--color-navy-600)]'}`}>
                 <UserRound className="h-4 w-4" /> Citizen

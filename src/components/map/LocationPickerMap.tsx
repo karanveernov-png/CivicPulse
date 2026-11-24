@@ -83,7 +83,7 @@ export function LocationPickerMap({ value, onChange }: LocationPickerMapProps) {
   const outOfBounds = value ? !isWithinDelhiBounds(value.lat, value.lng) : false
 
   return (
-    <div className="relative h-[320px] w-full overflow-hidden rounded-xl border border-[var(--color-border)]">
+    <div className="relative h-[300px] w-full overflow-hidden rounded-xl border border-[var(--color-border)] sm:h-[320px]">
       <div ref={containerRef} className="h-full w-full" role="application" aria-label="Map for selecting the issue location" />
       {status === 'loading' && (
         <div className="absolute inset-0 flex items-center justify-center bg-white/70">

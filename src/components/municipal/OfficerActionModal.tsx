@@ -126,7 +126,7 @@ export function OfficerActionModal({ issue, allIssues, onClose }: { issue: Civic
             <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-[var(--color-slate-500)]">Duplicate suggestions</p>
             <div className="space-y-2">
               {candidates.slice(0, 3).map((c) => (
-                <div key={c.issue.id} className="flex items-center justify-between gap-2 rounded-lg border border-[var(--color-border)] p-2">
+                <div key={c.issue.id} className="flex flex-col items-stretch justify-between gap-2 rounded-lg border border-[var(--color-border)] p-2 sm:flex-row sm:items-center">
                   <div className="min-w-0">
                     <p className="truncate text-xs font-medium text-[var(--color-navy-900)]">{c.issue.id} · {c.issue.title}</p>
                     <p className="text-[11px] text-[var(--color-slate-500)]">{c.distanceMeters}m away · {c.confidence} match</p>
