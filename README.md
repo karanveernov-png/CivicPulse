@@ -6,6 +6,10 @@ CivicPulse is an interactive civic issue management platform for Delhi. It helps
 
 Built for **Track 5 — Smarter Cities and Civic Infrastructure**.
 
+## Live Demo
+
+[Open CivicPulse on Vercel](https://civic-pulse-flame-nu.vercel.app/login)
+
 ---
 
 ## Highlights
